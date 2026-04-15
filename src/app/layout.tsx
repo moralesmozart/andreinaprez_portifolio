@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
+import { Cormorant_Garamond, Dancing_Script, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -9,6 +9,18 @@ const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-heading",
   weight: ["400", "500", "600", "700"],
+});
+
+const portfolioSerif = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-portfolio-serif",
+  weight: ["400", "600", "700"],
+});
+
+const portfolioScript = Dancing_Script({
+  subsets: ["latin"],
+  variable: "--font-portfolio-script",
+  weight: ["400", "700"],
 });
 
 const BASE_URL = "https://neverunpackspain.com";
@@ -75,7 +87,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={instrumentSans.variable}>
+    <html
+      lang="es"
+      className={`${instrumentSans.variable} ${portfolioSerif.variable} ${portfolioScript.variable}`}
+    >
       <body className="antialiased">
         <Header />
         <main>{children}</main>

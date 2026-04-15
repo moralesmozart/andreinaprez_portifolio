@@ -4,8 +4,12 @@ import { teamMembers } from "@/data/team";
 export const andreinaMember = teamMembers.find((m) => m.slug === "andreina-perez")!;
 
 export const portfolioNavLinks: NavLink[] = [
+  { label: "Resumen", href: "#resumen" },
   { label: "Sobre mí", href: "#sobre" },
+  { label: "Trayectoria", href: "#trayectoria" },
+  { label: "Medios", href: "#medios" },
   { label: "Proyectos", href: "#proyectos" },
+  { label: "Galería", href: "#galeria" },
   { label: "Contacto", href: "#contacto" },
 ];
 
