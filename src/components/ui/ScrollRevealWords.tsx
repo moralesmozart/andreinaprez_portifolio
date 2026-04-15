@@ -28,6 +28,7 @@ export default function ScrollRevealWords({
   className,
   label,
   labelClassName,
+  labelPosition = "aside",
   offset = defaultOffset,
   /** When false (default), unlabeled blocks get max-w-xl for line length. */
   fullWidth = false,
@@ -37,6 +38,8 @@ export default function ScrollRevealWords({
   className?: string;
   label?: string;
   labelClassName?: string;
+  /** aside: narrow label column; top: label above full-width text. */
+  labelPosition?: "aside" | "top";
   offset?: UseScrollOptions["offset"];
   fullWidth?: boolean;
   textClassName?: string;
@@ -52,23 +55,20 @@ export default function ScrollRevealWords({
   const totalWords = wordsPerLine.reduce((n, w) => n + w.length, 0);
   let wordIndex = 0;
 
-  return (
-    <div
-      ref={containerRef}
-      className={cn(label ? "grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,140px)_1fr] md:gap-8" : "", className)}
+  const labelEl = label ? (
+    <div className={cn(labelPosition === "aside" ? "pt-0.5 md:pt-1" : "")}>
+      <span className={cn("text-sm text-[#999]", labelClassName)}>{label}</span>
+    </div>
+  ) : null;
+
+  const paragraph = (
+    <p
+      className={cn(
+        "flex flex-wrap font-[family-name:var(--font-heading)] text-xl font-bold tracking-[-0.03em] text-[#111] md:text-2xl lg:text-[1.65rem] lg:leading-snug",
+        textClassName,
+        !label && !fullWidth && "max-w-xl",
+      )}
     >
-      {label ? (
-        <div className="pt-0.5 md:pt-1">
-          <span className={cn("text-sm text-[#999]", labelClassName)}>{label}</span>
-        </div>
-      ) : null}
-      <p
-        className={cn(
-          "flex flex-wrap font-[family-name:var(--font-heading)] text-xl font-bold tracking-[-0.03em] text-[#111] md:text-2xl lg:text-[1.65rem] lg:leading-snug",
-          textClassName,
-          !label && !fullWidth && "max-w-xl",
-        )}
-      >
         {wordsPerLine.map((words, lineIdx) => (
           <span key={lineIdx} className="contents">
             {words.map((word) => {
@@ -84,7 +84,30 @@ export default function ScrollRevealWords({
             {lineIdx < wordsPerLine.length - 1 ? <span className="basis-full" /> : null}
           </span>
         ))}
-      </p>
+    </p>
+  );
+
+  if (label && labelPosition === "top") {
+    return (
+      <div ref={containerRef} className={cn("flex w-full min-w-0 flex-col gap-2", className)}>
+        {labelEl}
+        {paragraph}
+      </div>
+    );
+  }
+
+  return (
+    <div
+      ref={containerRef}
+      className={cn(
+        label && labelPosition === "aside"
+          ? "grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,140px)_1fr] md:gap-8"
+          : "",
+        className,
+      )}
+    >
+      {label && labelPosition === "aside" ? labelEl : null}
+      {paragraph}
     </div>
   );
 }

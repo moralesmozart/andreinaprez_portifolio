@@ -55,7 +55,7 @@ export default function PortfolioLanding() {
         aria-label="Presentación"
       >
         <Container>
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,340px)] lg:gap-14">
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,300px)] lg:gap-14">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ export default function PortfolioLanding() {
                   alt={andreinaMember.imageAlt}
                   fill
                   className="object-cover object-top"
-                  sizes="(max-width: 1024px) 100vw, 340px"
+                  sizes="(max-width: 1024px) 100vw, 300px"
                   priority
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-5 pt-20">
