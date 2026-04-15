@@ -11,6 +11,7 @@ import Button from "@/components/ui/Button";
 import Container from "@/components/layout/Container";
 import { cn } from "@/lib/utils";
 import { TEAM_CONOCENOS_URL } from "@/data/team";
+import { WHATSAPP_CONTACT_URL } from "@/data/site";
 
 function isUnpackRoute(pathname: string | null): boolean {
   if (!pathname) return false;
@@ -100,8 +101,8 @@ export default function Header() {
                       Conócenos
                     </Button>
                   ) : (
-                    <Button href="/unpack" variant="primary">
-                      Never Unpack
+                    <Button href={WHATSAPP_CONTACT_URL} variant="primary">
+                      Hablamos
                     </Button>
                   )}
                 </div>
@@ -204,8 +205,12 @@ export default function Header() {
                       Conócenos
                     </Button>
                   ) : (
-                    <Button href="/unpack" variant="primary" onClick={() => setMobileMenuOpen(false)}>
-                      Never Unpack
+                    <Button
+                      href={WHATSAPP_CONTACT_URL}
+                      variant="primary"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Hablamos
                     </Button>
                   )}
                 </motion.div>

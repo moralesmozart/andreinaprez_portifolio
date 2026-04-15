@@ -5,8 +5,7 @@ import Container from "@/components/layout/Container";
 import Button from "@/components/ui/Button";
 import TextReveal from "@/components/ui/TextReveal";
 import { TEAM_CONOCENOS_URL } from "@/data/team";
-import { BLOG_HOME_URL } from "@/data/site";
-import Link from "next/link";
+import { BLOG_HOME_URL, WHATSAPP_CONTACT_URL } from "@/data/site";
 
 const FOOTER_REVEAL_TEXT =
   "Cada relato es una invitación a mirar el mapa con otros ojos: comunidad, calle y ganas de seguir desempacando historias";
@@ -32,8 +31,8 @@ export default function Footer() {
             Proyectos y comunidad. Never Unpack es una de las piezas que más me entusiasma — pasá por ahí cuando quieras.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Button href="/unpack" variant="primary">
-              Never Unpack
+            <Button href={WHATSAPP_CONTACT_URL} variant="primary">
+              Hablamos
             </Button>
             <Button href={BLOG_HOME_URL} variant="outline" showArrow>
               Blog
@@ -43,9 +42,14 @@ export default function Footer() {
         <Container className="border-t border-[#e5e5e5] py-6">
           <p className="text-sm text-[#888]">
             &copy; {new Date().getFullYear()} Andreína Pérez ·{" "}
-            <Link href="/unpack" className="underline underline-offset-2 hover:text-[#111]">
-              Never Unpack
-            </Link>
+            <a
+              href={WHATSAPP_CONTACT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-[#111]"
+            >
+              Hablamos
+            </a>
           </p>
         </Container>
       </footer>

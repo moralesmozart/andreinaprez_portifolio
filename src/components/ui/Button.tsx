@@ -48,6 +48,7 @@ export default function Button({
           className={classes}
           target={href.startsWith("mailto:") ? undefined : "_blank"}
           rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+          onClick={onClick}
         >
           {content}
         </a>

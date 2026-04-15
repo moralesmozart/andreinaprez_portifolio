@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Dancing_Script, Instrument_Sans } from "next/font/g
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
 import { BLOG_POST_COUNT } from "@/data/site";
 
 const instrumentSans = Instrument_Sans({
@@ -95,6 +96,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <WhatsAppFloat />
       </body>
     </html>
   );

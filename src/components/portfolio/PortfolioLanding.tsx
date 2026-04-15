@@ -17,7 +17,7 @@ import {
   portfolioSocialLinks,
   professionalSummary,
 } from "@/data/portfolio-content";
-import { BLOG_HOME_URL, BLOG_POST_COUNT } from "@/data/site";
+import { BLOG_HOME_URL, BLOG_POST_COUNT, WHATSAPP_CONTACT_URL } from "@/data/site";
 import { TEAM_CONOCENOS_URL } from "@/data/team";
 import PortfolioIntroScrollPitch from "@/components/portfolio/PortfolioIntroScrollPitch";
 import PortfolioSlideGallery from "@/components/portfolio/PortfolioSlideGallery";
@@ -74,8 +74,8 @@ export default function PortfolioLanding() {
               <p className="mb-6 text-lg font-medium text-[#333] md:text-xl">{andreinaMember.roleLabel}</p>
               <PortfolioIntroScrollPitch />
               <div className="flex flex-wrap items-center gap-3">
-                <Button href="/unpack" variant="primary" showArrow>
-                  Never Unpack
+                <Button href={WHATSAPP_CONTACT_URL} variant="primary" showArrow>
+                  Hablamos
                 </Button>
                 <Button href={BLOG_HOME_URL} variant="outline">
                   Blog
@@ -374,8 +374,8 @@ export default function PortfolioLanding() {
                 <Button href={BLOG_HOME_URL} variant="primary" showArrow>
                   Ir al blog
                 </Button>
-                <Button href="/unpack" variant="outline">
-                  Never Unpack
+                <Button href={WHATSAPP_CONTACT_URL} variant="outline">
+                  Hablamos
                 </Button>
               </div>
             </FadeIn>

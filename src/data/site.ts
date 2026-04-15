@@ -50,3 +50,6 @@ export const heroContent = {
 };
 
 export const BLOG_HOME_URL = "https://neverunpackspain.com/";
+
+/** Contacto directo (CTA flotante y “Hablamos”). */
+export const WHATSAPP_CONTACT_URL = "http://wa.me/+34619531620";
