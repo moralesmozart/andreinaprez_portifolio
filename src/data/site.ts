@@ -3,7 +3,8 @@ import { NavLink, SocialLink, Testimonial, StatCard } from "@/types";
 /** Total de publicaciones en el blog (WordPress REST API, actualizar si hace falta). */
 export const BLOG_POST_COUNT = 244;
 
-export const navLinks: NavLink[] = [
+/** Anchor links for the Never Unpack landing (`/unpack`). */
+export const unpackNavLinks: NavLink[] = [
   { label: "El equipo", href: "#about" },
   { label: "Continentes", href: "#continents" },
   { label: "Contacto", href: "#contact" },

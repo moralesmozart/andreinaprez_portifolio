@@ -82,7 +82,7 @@ export default function WorkContentCard({ project }: WorkContentCardProps) {
     >
       {/* Close button */}
       <Link
-        href="/#works"
+        href="/unpack#continents"
         className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full border border-[#e5e5e5] text-[#666] transition-colors hover:border-[#111] hover:text-[#111] md:right-12 md:top-10"
         aria-label="Close and return to works"
       >

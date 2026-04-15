@@ -13,28 +13,30 @@ const instrumentSans = Instrument_Sans({
 
 const BASE_URL = "https://neverunpackspain.com";
 
-const defaultDescription = `Comunidad de viajerxs: relatos por los cinco continentes, más de ${BLOG_POST_COUNT} historias en el blog y un equipo que las hace posibles.`;
+const defaultDescription = `Andreína Pérez — comunicación, viajes y proyectos. Never Unpack: comunidad viajerx con más de ${BLOG_POST_COUNT} relatos en el blog.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Never Unpack — Comunidad viajerx",
-    template: "%s — Never Unpack",
+    default: "Andreína Pérez",
+    template: "%s · Andreína Pérez",
   },
   description: defaultDescription,
   keywords: [
+    "Andreína Pérez",
     "Never Unpack",
     "viajes",
     "blog de viajes",
     "viajerxs",
+    "comunidad",
     "Europa",
     "América",
     "Asia",
     "África",
     "Oceanía",
   ],
-  authors: [{ name: "Never Unpack", url: BASE_URL }],
-  creator: "Never Unpack",
+  authors: [{ name: "Andreína Pérez", url: BASE_URL }],
+  creator: "Andreína Pérez",
   robots: {
     index: true,
     follow: true,
@@ -43,8 +45,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: BASE_URL,
-    siteName: "Never Unpack",
-    title: "Never Unpack — Comunidad viajerx",
+    siteName: "Andreína Pérez",
+    title: "Andreína Pérez",
     description: defaultDescription,
     images: [
       {
@@ -58,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Never Unpack — Comunidad viajerx",
+    title: "Andreína Pérez",
     description: defaultDescription,
     images: ["/images/og-image.png"],
   },
