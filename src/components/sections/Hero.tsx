@@ -39,9 +39,9 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className="relative z-10 shrink-0 pb-8 pt-8 lg:absolute lg:inset-0 lg:flex lg:flex-col lg:justify-end lg:pb-28 lg:pt-0"
+        className="relative z-10 shrink-0 pb-8 pt-8 lg:pointer-events-none lg:absolute lg:inset-0 lg:flex lg:flex-col lg:justify-end lg:pb-28 lg:pt-0"
       >
-        <Container>
+        <Container className="lg:pointer-events-auto">
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-10">
             <div>
               <div className="mb-4 flex flex-wrap items-center gap-3">
@@ -125,7 +125,7 @@ export default function Hero() {
         </Container>
       </motion.div>
 
-      <div className="pointer-events-none absolute inset-x-0 top-1/2 z-[5] hidden -translate-y-1/2 justify-between px-3 sm:px-6 lg:pointer-events-auto lg:flex">
+      <div className="pointer-events-none absolute inset-x-0 top-1/2 z-20 hidden -translate-y-1/2 justify-between px-3 sm:px-6 lg:flex">
         <button
           type="button"
           onClick={() => go(-1)}
@@ -194,13 +194,13 @@ export default function Hero() {
 
         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white to-transparent lg:hidden" />
 
-        <div className="absolute inset-y-0 left-0 hidden w-32 bg-gradient-to-r from-white/40 to-transparent lg:block" />
-        <div className="absolute inset-y-0 right-0 hidden w-32 bg-gradient-to-l from-white/40 to-transparent lg:block" />
+        <div className="absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-white/20 to-transparent lg:block" />
+        <div className="absolute inset-y-0 right-0 hidden w-24 bg-gradient-to-l from-white/20 to-transparent lg:block" />
       </motion.div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] hidden h-[70vh] lg:block">
-        <div className="absolute inset-0 [mask-image:linear-gradient(to_top,black_0%,black_30%,transparent_100%)] backdrop-blur-xl" />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-white/40 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] hidden h-[55vh] lg:block">
+        <div className="absolute inset-0 [mask-image:linear-gradient(to_top,black_0%,black_50%,transparent_100%)] backdrop-blur-md" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/50 via-white/18 to-transparent" />
       </div>
     </section>
   );
