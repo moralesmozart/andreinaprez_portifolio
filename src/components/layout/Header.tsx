@@ -57,77 +57,84 @@ export default function Header() {
         )}
       >
         <Container>
-          <div className="flex h-16 flex-wrap items-center justify-between gap-y-3 md:h-20 md:flex-nowrap">
-            <div className="flex min-w-0 flex-1 items-center gap-4 md:gap-8">
-              <Link
-                href="/"
-                className="shrink-0 font-[family-name:var(--font-heading)] text-lg font-bold tracking-[-0.03em] text-[#111] md:text-xl"
-              >
-                Andreína Pérez
-              </Link>
-
-              <nav
-                className="hidden items-center rounded-full bg-black/[0.06] p-1 lg:flex"
-                aria-label="Secciones principales"
-              >
+          <div className="flex flex-col gap-2.5 py-3 md:gap-3 md:py-4">
+            {/* Row 1: marca, pestañas Inicio/Unpack, CTA — sin competir en flex con los anclajes */}
+            <div className="flex min-h-10 items-center justify-between gap-3">
+              <div className="flex min-w-0 items-center gap-3 sm:gap-4 md:gap-5">
                 <Link
                   href="/"
-                  className={cn(
-                    "rounded-full px-4 py-1.5 text-sm font-medium transition-colors",
-                    !isUnpack ? "bg-white text-[#111] shadow-sm" : "text-[#666] hover:text-[#111]",
-                  )}
+                  className="shrink-0 font-[family-name:var(--font-heading)] text-lg font-bold tracking-[-0.03em] text-[#111] md:text-xl"
                 >
-                  Inicio
+                  Andreína Pérez
                 </Link>
-                <Link
-                  href="/unpack"
-                  className={cn(
-                    "rounded-full px-4 py-1.5 text-sm font-medium transition-colors",
-                    isUnpack ? "bg-white text-[#111] shadow-sm" : "text-[#666] hover:text-[#111]",
-                  )}
+
+                <nav
+                  className="hidden shrink-0 items-center rounded-full bg-black/[0.06] p-1 lg:flex"
+                  aria-label="Secciones principales"
                 >
-                  Unpack
-                </Link>
-              </nav>
+                  <Link
+                    href="/"
+                    className={cn(
+                      "rounded-full px-3 py-1.5 text-sm font-medium transition-colors sm:px-4",
+                      !isUnpack ? "bg-white text-[#111] shadow-sm" : "text-[#666] hover:text-[#111]",
+                    )}
+                  >
+                    Inicio
+                  </Link>
+                  <Link
+                    href="/unpack"
+                    className={cn(
+                      "rounded-full px-3 py-1.5 text-sm font-medium transition-colors sm:px-4",
+                      isUnpack ? "bg-white text-[#111] shadow-sm" : "text-[#666] hover:text-[#111]",
+                    )}
+                  >
+                    Unpack
+                  </Link>
+                </nav>
+              </div>
+
+              <div className="flex shrink-0 items-center gap-2">
+                <div className="hidden sm:block">
+                  {isUnpack ? (
+                    <Button href={TEAM_CONOCENOS_URL} variant="primary">
+                      Conócenos
+                    </Button>
+                  ) : (
+                    <Button href="/unpack" variant="primary">
+                      Never Unpack
+                    </Button>
+                  )}
+                </div>
+
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="flex h-10 w-10 items-center justify-center lg:hidden"
+                  aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+                >
+                  {mobileMenuOpen ? (
+                    <X className="h-6 w-6 text-[#111]" />
+                  ) : (
+                    <Menu className="h-6 w-6 text-[#111]" />
+                  )}
+                </button>
+              </div>
             </div>
 
-            <nav className="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-8">
+            {/* Row 2: anclas de página (solo lg+) — ancho completo, wrap si hace falta */}
+            <nav
+              className="hidden w-full flex-wrap items-center gap-x-5 gap-y-2 border-t border-black/[0.08] pt-2.5 lg:flex"
+              aria-label={isUnpack ? "Sección Never Unpack" : "Secciones del portfolio"}
+            >
               {secondaryLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="whitespace-nowrap text-sm text-[#666] transition-colors hover:text-[#111]"
+                  className="shrink-0 text-sm text-[#666] transition-colors hover:text-[#111]"
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
-
-            <div className="flex shrink-0 items-center gap-2">
-              <div className="hidden sm:block">
-                {isUnpack ? (
-                  <Button href={TEAM_CONOCENOS_URL} variant="primary">
-                    Conócenos
-                  </Button>
-                ) : (
-                  <Button href="/unpack" variant="primary">
-                    Never Unpack
-                  </Button>
-                )}
-              </div>
-
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="flex h-10 w-10 items-center justify-center lg:hidden"
-                aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
-              >
-                {mobileMenuOpen ? (
-                  <X className="h-6 w-6 text-[#111]" />
-                ) : (
-                  <Menu className="h-6 w-6 text-[#111]" />
-                )}
-              </button>
-            </div>
           </div>
         </Container>
       </header>
