@@ -7,7 +7,7 @@ import { ArrowRight, MapPin } from "lucide-react";
 import Container from "@/components/layout/Container";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
-import { andreinaMember, portfolioLead } from "@/data/portfolio";
+import { andreinaMember } from "@/data/portfolio";
 import {
   contactEmail,
   experiencePillarsBlockA,
@@ -19,6 +19,7 @@ import {
 } from "@/data/portfolio-content";
 import { BLOG_HOME_URL, BLOG_POST_COUNT } from "@/data/site";
 import { TEAM_CONOCENOS_URL } from "@/data/team";
+import PortfolioIntroScrollPitch from "@/components/portfolio/PortfolioIntroScrollPitch";
 import PortfolioSlideGallery from "@/components/portfolio/PortfolioSlideGallery";
 import PortfolioSlideImage from "@/components/portfolio/PortfolioSlideImage";
 import { portfolioSlideSrc } from "@/lib/portfolio-slides";
@@ -70,8 +71,8 @@ export default function PortfolioLanding() {
               <p className="portfolio-script mb-2 text-2xl text-[#111] md:text-3xl">
                 Periodista y comunicadora audiovisual
               </p>
-              <p className="mb-2 text-lg font-medium text-[#333] md:text-xl">{andreinaMember.roleLabel}</p>
-              <p className="mb-8 max-w-xl text-base leading-relaxed text-[#555] md:text-lg">{portfolioLead}</p>
+              <p className="mb-6 text-lg font-medium text-[#333] md:text-xl">{andreinaMember.roleLabel}</p>
+              <PortfolioIntroScrollPitch />
               <div className="flex flex-wrap items-center gap-3">
                 <Button href="/unpack" variant="primary" showArrow>
                   Never Unpack
