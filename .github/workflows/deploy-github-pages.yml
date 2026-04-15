@@ -32,6 +32,7 @@ jobs:
       - run: npm run build
         env:
           BASE_PATH: /andreinaprez_portifolio
+          NEXT_PUBLIC_SITE_URL: https://moralesmozart.github.io
 
       - uses: actions/configure-pages@v5
 

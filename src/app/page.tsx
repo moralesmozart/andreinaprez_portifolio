@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
 import PortfolioLanding from "@/components/portfolio/PortfolioLanding";
+import { homeShareDescription, shareOgImage } from "@/data/share-metadata";
 
 export const metadata: Metadata = {
-  title: "Inicio",
-  description:
-    "Andreína Pérez — comunicación, viajes y comunidades. Never Unpack es uno de sus proyectos: relatos reales y comunidad viajerx sin postureo.",
+  description: homeShareDescription,
   openGraph: {
-    title: "Andreína Pérez",
-    description:
-      "Portfolio y proyectos: Never Unpack, comunidad de viajerxs y blog de relatos por el mundo.",
+    title: "📇 Andreína Pérez — Periodista y portfolio",
+    description: homeShareDescription,
+    type: "website",
+    url: "/",
+    images: [shareOgImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "📇 Andreína Pérez — Periodista y portfolio",
+    description: homeShareDescription,
+    images: [shareOgImage.url],
   },
 };
 

@@ -4,7 +4,8 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
-import { BLOG_POST_COUNT } from "@/data/site";
+import { homeShareDescription, shareOgImage } from "@/data/share-metadata";
+import { getSiteBaseUrl } from "@/lib/site-base-url";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -24,17 +25,15 @@ const portfolioScript = Dancing_Script({
   weight: ["400", "700"],
 });
 
-const BASE_URL = "https://neverunpackspain.com";
-
-const defaultDescription = `Andreína Pérez — comunicación, viajes y proyectos. Never Unpack: comunidad viajerx con más de ${BLOG_POST_COUNT} relatos en el blog.`;
+const siteBaseUrl = getSiteBaseUrl();
 
 export const metadata: Metadata = {
-  metadataBase: new URL(BASE_URL),
+  metadataBase: new URL(`${siteBaseUrl}/`),
   title: {
-    default: "Andreína Pérez",
+    default: "📇 Andreína Pérez",
     template: "%s · Andreína Pérez",
   },
-  description: defaultDescription,
+  description: homeShareDescription,
   keywords: [
     "Andreína Pérez",
     "Never Unpack",
@@ -48,37 +47,35 @@ export const metadata: Metadata = {
     "África",
     "Oceanía",
   ],
-  authors: [{ name: "Andreína Pérez", url: BASE_URL }],
+  authors: [{ name: "Andreína Pérez", url: siteBaseUrl }],
   creator: "Andreína Pérez",
   robots: {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true },
   },
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     type: "website",
-    url: BASE_URL,
-    siteName: "Andreína Pérez",
-    title: "Andreína Pérez",
-    description: defaultDescription,
-    images: [
-      {
-        url: "/images/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Never Unpack",
-      },
-    ],
+    url: "/",
+    siteName: "📇 Andreína Pérez",
+    title: "📇 Andreína Pérez — Periodista y portfolio",
+    description: homeShareDescription,
+    images: [shareOgImage],
     locale: "es_ES",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Andreína Pérez",
-    description: defaultDescription,
-    images: ["/images/og-image.png"],
+    title: "📇 Andreína Pérez — Periodista y portfolio",
+    description: homeShareDescription,
+    images: [shareOgImage.url],
   },
   alternates: {
-    canonical: BASE_URL,
+    canonical: "/",
   },
 };
 
